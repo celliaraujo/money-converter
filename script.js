@@ -1,17 +1,15 @@
-const urlAPI = 'http://economia.awesomeapi.com.br/json/';
-const dolar = urlAPI.concat('BRL-USD/');
-const euro = urlAPI.concat('BRL-EUR/');
-const peso = urlAPI.concat('BRL-ARS/');
-const iene = urlAPI.concat('BRL-JPY/');
-const yuan = urlAPI.concat('BRL-CNY/');
+const urlAPI = 'https://economia.awesomeapi.com.br/json/BRL-';
+const dolar = urlAPI.concat('usd');
+const euro = urlAPI.concat('eur');
+const peso = urlAPI.concat('ars');
+const iene = urlAPI.concat('jpy');
+const yuan = urlAPI.concat('cny');
 
 async function retornaValor(url){
     let response = await fetch(url)
     .then(result => result.json())
     .then(json => json[0].ask)
-    //.catch(e); 
-    //console.log(response);
-    //console.log(parseFloat(response));
+    
     return parseFloat(response);
 }
 
@@ -43,38 +41,30 @@ function delay(sec) {
 }
 
 async function converter(){
-    if(selectedCurrency.value === "eur"){
-        let valor = await retornaValor(euro);
-        console.log(valor);
-        valueConverted = inputValue.value * valor;
-        result.innerHTML = valueFormatter('pt-BR', 'EUR');
-        animateResult();        
-
-    }else if(selectedCurrency.value === "dol"){
-        let valor = await retornaValor(dolar);
-        console.log(valor);
-        valueConverted = inputValue.value * valor;
-        result.innerHTML = valueFormatter('pt-BR', 'USD');
-        animateResult();
-    }else if(selectedCurrency.value === "ars"){
-        let valor = await retornaValor(peso);
-        console.log(valor);
-        valueConverted = inputValue.value * valor;
-        result.innerHTML = valueFormatter('pt-BR', 'ARS');
-        animateResult();
-    }else if(selectedCurrency.value === "jpy"){
-        let valor = await retornaValor(iene);
-        console.log(valor);
-        valueConverted = inputValue.value * valor;
-        result.innerHTML = valueFormatter('pt-BR', 'JPY');
-        animateResult();
-    }else if(selectedCurrency.value === "cny"){
-        let valor = await retornaValor(yuan);
-        console.log(valor);
-        valueConverted = inputValue.value * valor;
-        result.innerHTML = valueFormatter('pt-BR', 'CNY');
-        animateResult();
+    switch(selectedCurrency.value){        
+        case 'eur':
+            valor = await retornaValor(euro);
+            break;
+        case 'usd':
+            valor = await retornaValor(dolar);
+            break;
+        case 'ars':
+            valor = await retornaValor(peso);
+            break;
+        case 'jpy':
+            valor = await retornaValor(dolar);
+            break;
+        case 'cny':
+            valor = await retornaValor(dolar);
+            break;
     }
+
+    console.log(valor);
+    valueConverted = inputValue.value * valor;
+    result.innerHTML = valueFormatter('pt-BR', 'EUR');
+    animateResult();
+
+    await delay(1);
 
     inputValue.value = '';
     selectedCurrency.value = '';
