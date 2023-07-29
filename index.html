@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$Money Converter</title>
+    <link rel="shortcut icon" href="img/favMC.ico" type="image/x-icon">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/resposive.css">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>$Money Converter</h1>
+    </header>
+
+    <main>
+        <form id="form">
+            <section class="inputs-container">
+                <div class="form-group">
+                    <label for="value-real">Valor a ser convertido (R$):</label>
+                    <input class="dinheiro" type="number" placeholder="R$20,00" id="value-real" name="value-real" max="1000000">
+                </div>
+
+                <div class="form-group">
+                    <label for="currency">Escolha a moeda:</label>
+                    <select id="currency">
+                        <option value="">Selecione...</option>
+                        <option value="eur">Euro</option>
+                        <option value="dol">Dólar</option>
+                        <option value="ars">Peso Argentino</option>
+                        <option value="jpy">Iene Japonês</option>
+                        <option value="cny">Yuan Chinês</option>
+                    </select>                    
+                </div>
+            </section>
+
+            <button type="submit">Converter</button>
+        </form>
+
+        <h2 id="result"></h2>
+    </main>
+
+    <footer>
+        <span>
+            &copy; $MoneyConverter, 2023. Todos os direitos reservados.
+        </span>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

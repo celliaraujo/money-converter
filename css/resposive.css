@@ -1,0 +1,20 @@
+@media(max-width: 800px){
+    .inputs-container{
+        flex-direction: column;
+    }
+    .form-group{
+        flex-wrap: wrap;
+        align-content: center;
+        margin-bottom: 20px;
+    }
+    
+}
+
+@media(max-width: 500px){
+    header h1{
+        font-size: 1.8em;
+    }
+    footer span{
+        font-size: 0.6em;
+    }
+}
