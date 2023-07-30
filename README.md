@@ -8,4 +8,4 @@ Nesse curso são apresentados os 3 pilares do desenvolvimento web front-end, que
 
 - Obtenção de valores atuais através da [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas)
 - Inclusão de outras moedas 
-- Resposividade do projeto
+- Responsividade do projeto
